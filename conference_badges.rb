@@ -11,18 +11,13 @@ def batch_badge_creator(attendees)
 end
 
 def assign_rooms(attendees)
-  room_number = 0
-  while room_number < attendees.size
-  	room_number += 1
-  	welcome = []
-  	attendees.each do |name|room_number|
-  	puts "Hello, #{name}! You'll be assigned to room #{room_number}!"
-  end
-  	welcome
+  	attendees.each_with_index.map do |name, x|
+  	room_number = x + 1
+  	"Hello, #{name}! You'll be assigned to room #{room_number}!"
   end
 end
 
-def printer
+def printer(attendees)
   puts batch_badge_creator(attendees)
   puts assign_rooms(attendees)
 end
